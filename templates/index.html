@@ -1,0 +1,77 @@
+<DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Smart Fleet & Logistics Dashboard</title>
+            <script src="https://cdn.tailwindcss.com"></script>
+        </head>
+    <body class="bg-gray-100 font-sans unified-layout">
+        <nav class="bg-blue-600 text-white p-4 shadow-md">
+            <div class="container mx-auto flex justify-between items-center">
+                <h1 class="text-2xl font-bold tracking-wide">📦 LogiStream AI</h1>
+                <span class="bg-blue-700 px-3 py-1 rounded text-sm font-semibold">Corporate Fleet System</span>
+            </div>
+        </nav>
+
+        <main class="container mx-auto my-8 px-4 grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <section class="lg:col-span-2 bg-white px-6 rounded-xl shadow-sm border border-gray-200">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-bold text-gray-800">🚚 Active Fleet Monitors</h2>
+                    <span class="animate-pulse bg-green-500 text-white text-xs px-2 py-1 rounded-full font-bold">LIVE DATA</span>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-gray-50 text-gray-500 text-sm uppercase tracking-wider border-b">
+                                <th class="p-3">Truck ID</th>
+                                <th class="p-3">Driver</th>
+                                <th class="p-3">Status</th>
+                                <th class="p-3">Destination</th>
+                                <th class="p-3 text-right">Efficiency</th>
+                            </tr>
+                        </thead>
+                        <tbody id="fleet-table-body" class="text-gray-700 divide-y divide-gray-100">
+                            <tr>
+                                <td colspan="5" class="p-4 text-center text-gray-400 italic">Connecting to Flask server...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <section class="bg-white p-6 rounded-xl shadow-sm border-gray-200 flex flex-col justify-between">
+                <div>
+                    <h2 class="text-xl font-bold text-gray-800 mb-2">⚡ Smart Route Optimizer</h2>
+                    <p class="text-gray-500 text-sm mb-6">Calculate dynamic logistics ETAs using backend traffic multipliers.</p>
+                    <div class="space-y-4">
+                       <div>
+                         <label class="block text-sm font-semibold text-gray-600 mb-1">Route Distance (km)</label>
+                         <input type="number" id="distance-input" placeholder="e.g., 450" class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-600 mb-1">Current Traffic Density</label>
+                            <select id="traffic-input" class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="Low">Low Density (Open Highway)</option>
+                                <option value="Medium" selected>Medium Density (Standard)</option>
+                                <option value="High">High Density (Congested/Bottleneck)</option>
+                            </select>
+                        </div>
+                        <button id="optimize-btn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-lg transition dynamic-btn">
+                            Compute Optimization
+                        </button>
+                    </div>
+                </div>
+                <div id="results-box" class="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg hidden">
+                    <h3 class="font-bold text-blue-900 mb-2">📊 Algorithmic Metrics:</h3>
+                    <div class="text-sm text-blue-800 space-y-1">
+                        <p>⏱️ Estimated Duration: <span id="res-hours" class="font-bold">--</span> hours</p>
+                        <p>🏎️ Advised Target Speed: <span id="res-speed" class="font-bold">--</span></p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <script src="/static/script.js"></script>   
+        </body>   
+    </html>
+</DOCTYPE>
